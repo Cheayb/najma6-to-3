@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نجمة 6 ← نجمة 3 | مولّد الإعدادات</title>
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%232563eb'/%3E%3Ctext x='256' y='320' font-family='Arial' font-size='220' font-weight='bold' fill='%23fff' text-anchor='middle'%3E*3%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f7fb;--fg:#101426;--card:#fff;--line:#e3e6f0;--acc:#2563eb;--muted:#6b7280}
+body.dark{--bg:#0b1020;--fg:#e8ecf7;--card:#141a2e;--line:#26304d;--acc:#4f8cff;--muted:#93a0bd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,Tahoma,Arial,sans-serif;line-height:1.7;padding-bottom:40px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.brand{display:flex;gap:10px;align-items:center}
+.brand small{display:block;color:var(--muted);font-size:11px}
+.tabs{display:flex;gap:6px;padding:10px 12px;overflow-x:auto;background:var(--card);border-bottom:1px solid var(--line)}
+.tabs button{flex:0 0 auto;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;font-size:14px}
+.tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+main{padding:18px 16px;max-width:760px;margin:0 auto}
+.tab{display:none}.tab.on{display:block}
+h1{font-size:22px;margin:8px 0}h2{font-size:17px;margin:0 0 10px}h3{font-size:15px;margin:0 0 4px}
+.lead{color:var(--muted);margin-top:0}
+.steps{padding:0;list-style:none}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:12px}
+input,select,textarea{width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit}
+textarea{resize:vertical;font-family:monospace;font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button{padding:10px 16px;border-radius:10px;border:0;background:var(--acc);color:#fff;font:inherit}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 12px}
+.chip{font-size:12px;padding:5px 10px;border-radius:999px;background:transparent;border:1px solid var(--line);color:var(--muted)}
+.fld{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px}
+.fld span{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.fld code{display:block;word-break:break-all;background:var(--bg);padding:8px;border-radius:8px;font-size:13px}
+.fld .cp{margin-top:8px;font-size:12px;padding:6px 10px}
+.srvList{display:grid;gap:8px}
+.srv{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.srv small{display:block;color:var(--muted);font-size:12px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+summary{font-weight:600}
+.muted{color:var(--muted);font-size:13px}
+a{color:var(--acc)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+#toast{position:fixed;inset-inline:0;bottom:24px;margin:auto;width:max-content;background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;z-index:50}
+#toast.on{opacity:1;transform:none}
+@media(max-width:520px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div><strong>نجمة 6 → نجمة 3</strong><small>مولّد إعدادات</small></div>
+  </div>
+  <button id="themeBtn" class="ghost">🌙</button>
+</header>
+
+<nav class="tabs">
+  <button data-tab="start" class="on">البداية</button>
+  <button data-tab="gen">المولّد</button>
+  <button data-tab="servers">السيرفرات</button>
+  <button data-tab="faq">أسئلة</button>
+</nav>
+
+<main>
+
+<section id="start" class="tab on">
+  <h1>كيفاش تخدم؟</h1>
+  <p class="lead">هاد الصفحة ما كتعطي والو بوحدها: كتعاونك توجد الإعدادات وتركبها فـ HTTP Custom. الخدمة كتحتاج سيرفر SSH مجاني و SNI من الدومات المسموحة فـ عرض نجمة 6.</p>
+  <ol class="steps">
+    <li>
+      <h3>1. فعّل عرض نجمة 6</h3>
+      <p>عمر رصيد، دخل الكود وضغط «تفعيل»:</p>
+      <div class="row">
+        <select id="opAct"></select>
+        <input id="codeAct" placeholder="كود التعبئة" inputmode="numeric">
+        <button id="dialBtn">تفعيل</button>
+      </div>
+      <small class="muted">الصيغ موجودة فـ قسم الأسئلة.</small>
+    </li>
+    <li><h3>2. ركّب HTTP Custom</h3><p>من Google Play. باقي التطبيقات كتخدم بنفس المبدأ.</p></li>
+    <li><h3>3. جيب سيرفر SSH</h3><p>من <a href="https://sshocean.com/" target="_blank" rel="noopener">SSHOcean</a>: خد host و port و user و pass.</p></li>
+    <li><h3>4. ولّد الإعدادات</h3><p>دوز لـ <a href="#" data-goto="gen">المولّد</a>، عمر الحقول، وانسخ الناتج.</p></li>
+    <li><h3>5. وصّل</h3><p>فعّل Use Payload و SSL، من بعد Connect. إلا ما وصلش بدل SNI أو Payload.</p></li>
+  </ol>
+</section>
+
+<section id="gen" class="tab">
+  <h1>المولّد</h1>
+  <p class="lead">كلشي كيتسجل فـ المتصفح ديالك فقط.</p>
+  <div class="card">
+    <label>المشغل<select id="op"></select></label>
+    <div class="grid2">
+      <label>السيرفر<input id="host" placeholder="uk.wstunnel.xyz" dir="ltr"></label>
+      <label>البورت<input id="port" type="number" value="443" dir="ltr"></label>
+      <label>المستخدم<input id="user" placeholder="user" dir="ltr"></label>
+      <label>الباسورد<input id="pass" placeholder="pass" dir="ltr"></label>
+    </div>
+    <label>SNI<input id="sni" list="sniList" dir="ltr"><datalist id="sniList"></datalist></label>
+    <div id="sniChips" class="chips"></div>
+    <label>نوع Payload<select id="mode"></select></label>
+    <label>Payload (قابل للتعديل)<textarea id="payload" rows="3" dir="ltr"></textarea></label>
+    <div class="row">
+      <button id="genBtn">توليد</button>
+      <button id="dlBtn" class="ghost">تحميل JSON</button>
+      <button id="clrBtn" class="ghost">تفريغ</button>
+    </div>
+  </div>
+  <div id="out" class="card" hidden><h2>الإعدادات الجاهزة</h2><div id="outBody"></div></div>
+</section>
+
+<section id="servers" class="tab">
+  <h1>السيرفرات</h1>
+  <p class="lead">أمثلة — بدلها بسيرفراتك من الكود.</p>
+  <div id="srvList" class="srvList"></div>
+</section>
+
+<section id="faq" class="tab">
+  <h1>أسئلة</h1>
+  <details><summary>علاش كيحتاج سيرفر؟</summary><p>العرض كيسمح غير بدومات معروفة. الـ tunnel كيخبي الترافيك داخل TLS لهاد الدومات و كيدوز عبر سيرفر SSH.</p></details>
+  <details><summary>أشمن صيغة ديال التفعيل؟</summary>
+    <p>اتصالات المغرب: <code>*555*الكود*6#</code><br>إنوي: <code>*120*20*الكود*6#</code><br>أورنج: <code>*100*الكود*6#</code></p>
+    <p class="muted">إلا ما خدمش، شوف الرسالة اللي كتجي مع الكود.</p>
+  </details>
+  <details><summary>ما وصلش؟</summary><p>بدل SNI، بدل Payload، بدل البورت (443/80)، ولا بدل السيرفر — واحد بواحد.</p></details>
+  <details><summary>واش مجاني؟</summary><p>الصفحة مجانية. السيرفرات المجانية عندها حدود، إلا بغيت استقرار خد سيرفر مؤدى.</p></details>
+</section>
+
+</main>
+<footer>التطبيق ما مرتبطش بأي مشغل — العروض ممكن تبدل.</footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const KEY="nj6.v1";
+const DATA={
+ operators:[
+  {id:"inwi",name:"إنوي",ussd:c=>"*120*20*"+c+"*6#"},
+  {id:"iam",name:"اتصالات المغرب",ussd:c=>"*555*"+c+"*6#"},
+  {id:"orange",name:"أورنج",ussd:c=>"*100*"+c+"*6#"}],
+ sni:["web.facebook.com","graph.facebook.com","b-api.facebook.com","instagram.com","i.instagram.com","whatsapp.net","g.whatsapp.net","snapchat.com","app.snapchat.com"],
+ payloads:[
+  {id:"tls",name:"TLS / SNI (موصى به)",tpl:"CONNECT [host_port] HTTP/1.1[crlf]Host: [sni][crlf][crlf]"},
+  {id:"keep",name:"Keep-Alive",tpl:"CONNECT [host_port] HTTP/1.1[crlf]Host: [sni][crlf]Proxy-Connection: Keep-Alive[crlf][crlf]"},
+  {id:"ua",name:"مع User-Agent",tpl:"CONNECT [host_port] HTTP/1.1[crlf]Host: [sni][crlf]User-Agent: Mozilla/5.0[crlf][crlf]"},
+  {id:"free",name:"يدوي",tpl:""}],
+ servers:[
+  {name:"SSHOcean UK (مثال)",host:"uk.wstunnel.xyz",port:443,user:"",pass:"",sni:"web.facebook.com",mode:"tls"},
+  {name:"SSHOcean SG (مثال)",host:"sg.wstunnel.xyz",port:443,user:"",pass:"",sni:"graph.facebook.com",mode:"tls"}]
+};
+let st=Object.assign({operator:"inwi",host:"",port:443,user:"",pass:"",sni:DATA.sni[0],mode:"tls",payload:""},JSON.parse(localStorage.getItem(KEY)||"{}"));
+const save=()=>localStorage.setItem(KEY,JSON.stringify(st));
+
+function render(){for(const s of [$("#op"),$("#opAct")])s.innerHTML=DATA.operators.map(o=>`<option value="${o.id}">${o.name}</option>`).join("");
+ $("#mode").innerHTML=DATA.payloads.map(p=>`<option value="${p.id}">${p.name}</option>`).join("");
+ $("#sniList").innerHTML=DATA.sni.map(h=>`<option value="${h}">`).join("");
+ $("#sniChips").innerHTML=DATA.sni.map(h=>`<button class="chip" data-sni="${h}">${h}</button>`).join("");
+ $("#srvList").innerHTML=DATA.servers.map((s,i)=>`<div class="srv"><div><strong>${s.name}</strong><small dir="ltr">${s.host}:${s.port}</small></div><button class="ghost" data-i="${i}">استعمل</button></div>`).join("");
+ sync();}
+
+function sync(){$("#op").value=st.operator;$("#host").value=st.host;$("#port").value=st.port;$("#user").value=st.user;$("#pass").value=st.pass;$("#sni").value=st.sni;$("#mode").value=st.mode;$("#payload").value=st.payload;}
+
+function go(t){$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));$$(".tab").forEach(s=>s.classList.toggle("on",s.id===t));scrollTo({top:0,behavior:"smooth"});}
+
+function conn(){const a=(st.user||st.pass)?`@${st.user}:${st.pass}`:"";return `${st.host||"<host>"}:${st.port}${a}`;}
+
+function generate(){
+ if(!st.host)return toast("دخل السيرفر");
+ const pl=(st.payload||(DATA.payloads.find(p=>p.id===st.mode)||{}).tpl||"").replace(/\[sni\]/g,st.sni).replace(/\[host_port\]/g,`${st.host}:${st.port}`).replace(/\[host\]/g,st.host).replace(/\[port\]/g,st.port);
+ const rows=[["سلسلة الاتصال",conn()],["SNI",st.sni],["Payload",pl]];
+ $("#outBody").innerHTML=rows.map(([k,v])=>`<div class="fld"><span>${k}</span><code dir="ltr">${v.replace(/</g,"&lt;")}</code><button class="ghost cp" data-copy="${v.replace(/"/g,"&quot;")}">نسخ</button></div>`).join("")
+ +`<p class="muted">فـ HTTP Custom: القائمة ← Payload ← لصق ← Apply. من بعد SNI ← لصق ← Apply. فعّل Use Payload و SSL.</p><button id="cpAll">نسخ كلشي</button>`;
+ $("#out").hidden=false;
+ $("#outBody").onclick=e=>{const b=e.target.closest("[data-copy]");if(b)copy(b.dataset.copy);if(e.target.id==="cpAll")copy(`${conn()}\nSNI: ${st.sni}\n${pl}`);};
+ $("#out").scrollIntoView({behavior:"smooth"});
+}
+
+function download(){
+ const d={operator:st.operator,host:st.host,port:st.port,user:st.user,pass:st.pass,sni:st.sni,mode:st.mode,payload:st.payload};
+ const u=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:"application/json"}));
+ const a=document.createElement("a");a.href=u;a.download=`nj6-${st.operator}.json`;a.click();URL.revokeObjectURL(u);
+}
+
+async function copy(t){try{await navigator.clipboard.writeText(t);toast("تنسخ")}catch{toast("ما قدرتش ننسخ")}}
+let tt;function toast(m){let e=$("#toast");if(!e){e=document.createElement("div");e.id="toast";document.body.appendChild(e)}e.textContent=m;e.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>e.classList.remove("on"),1800)}
+
+$("#op").onchange=e=>{st.operator=e.target.value;save()};
+$("#sni").oninput=e=>{st.sni=e.target.value.trim();save()};
+$("#sniChips").onclick=e=>{const b=e.target.closest("[data-sni]");if(!b)return;st.sni=b.dataset.sni;$("#sni").value=st.sni;save()};
+$("#mode").onchange=e=>{st.mode=e.target.value;st.payload=(DATA.payloads.find(p=>p.id===st.mode)||{}).tpl||"";$("#payload").value=st.payload;save()};
+["host","port","user","pass","payload"].forEach(id=>$("#"+id).oninput=e=>{st[id]=id==="port"?Number(e.target.value)||443:e.target.value.trim();save()});
+$("#genBtn").onclick=generate;
+$("#dlBtn").onclick=download;
+$("#clrBtn").onclick=()=>{st={...st,host:"",user:"",pass:"",payload:"",mode:"tls"};save();sync();$("#out").hidden=true};
+$("#dialBtn").onclick=()=>{const c=$("#codeAct").value.trim();if(!c)return toast("دخل الكود");const o=DATA.operators.find(x=>x.id===$("#opAct").value);location.href="tel:"+encodeURIComponent(o.ussd(c)).replace(/%2A/g,"*")};
+$("#srvList").onclick=e=>{const b=e.target.closest("[data-i]");if(!b)return;const s=DATA.servers[+b.dataset.i];Object.assign(st,{host:s.host,port:s.port,user:s.user,pass:s.pass,sni:s.sni,mode:s.mode});save();sync();go("gen");toast("تعمرت الحقول")};
+$("#themeBtn").onclick=()=>{document.body.classList.toggle("dark");localStorage.setItem("nj6.t",document.body.classList.contains("dark")?"dark":"")};
+$$(".tabs button").forEach(b=>b.onclick=()=>go(b.dataset.tab));
+$$("[data-goto]").forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.goto)});
+if(localStorage.getItem("nj6.t")==="dark")document.body.classList.add("dark");
+render();
+</script>
+</body>
+                       </html>
