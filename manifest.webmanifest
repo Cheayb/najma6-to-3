@@ -1,0 +1,17 @@
+{
+  "name": "نجمة 6 إلى نجمة 3",
+  "short_name": "نجمة 6→3",
+  "description": "مولّد إعدادات تحويل نجمة 6 إلى نجمة 3",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
